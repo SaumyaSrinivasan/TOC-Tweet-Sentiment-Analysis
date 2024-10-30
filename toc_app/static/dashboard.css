@@ -1,0 +1,155 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+} */
+
+body  {
+    background-image: url('d2.jpg');
+    background-size: contain;
+        -webkit-animation: slidein 5s;
+        animation: slidein 5s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:2000px; }
+to {background-position: -100px 0px;background-size:1300px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:2000px; }
+to {background-position: -100px 0px;background-size:1300px;}
+
+}
+
+
+
+
+.main {
+    transition: margin-left 0.5s;
+    padding: 20px;
+    margin-left: 0;
+}
+
+.menu{
+    padding-left: 1400px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+.username {
+    font-size: 18px;
+    color: white;
+    padding: 16px;
+}
+
+.main .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.analysis-card1, .analysis-card2, .analysis-card3, .analysis-card4 {
+    background-color: #f9f9f9;
+    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 360px;
+    height: 270px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.analysis-card1:hover {
+    transform: translateY(-5px);
+    background-color: rgb(205, 149, 205);
+    color: #111;
+}
+
+.analysis-card2:hover {
+    transform: translateY(-5px);
+    background-color: rgb(170, 232, 244);
+    color: #111;
+}
+
+.analysis-card3:hover {
+    transform: translateY(-5px);
+    background-color: rgb(231, 148, 148);
+    color: #111;
+}
+
+.analysis-card4:hover {
+    transform: translateY(-5px);
+    background-color: rgb(198, 221, 144);
+    color: #111;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #444;
+    margin: 0;
+}

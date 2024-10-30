@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidenav" id="mySidenav">
+        <div class="dropdown-container">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/sentiment-data">Sentiment Analysis</a>
+            <a href="/topic">Topic Analysis</a>
+            <a href="/cause">TOC key statistics dashboard</a>
+            <a href="/recommendation">Recommendation System</a>
+        </div>
+        <a href="/logout" class="logout-btn">Logout
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+    <div class="main">
+        <header>
+          <div class="username">Welcome, {{ username }}</div>
+          <div class="menu">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+          </div>
+        </header>
+        <div class="card-container">
+            <div class="analysis-card1">
+                <h2>Sentiment Analysis</h2>
+                <div>Explore sentiments within user tweets, view overall sentiment trends, 
+                    analyze TOC-specific sentiment distribution, and track sentiment changes over the years.</div><br><br><br><br>
+                <button onclick="redirectTo('/sentiment-data')">View Analysis</button>
+            </div>
+            <div class="analysis-card2">
+                <h2>Topic Analysis</h2>
+                <div>Discover trending topics within tweets, delve into topic-specific sentiment,
+                     and observe how topics have evolved in user discussions.</div><br><br><br><br>
+                <button onclick="redirectTo('/topic')">View Analysis</button>
+            </div>
+            <div class="analysis-card3">
+                <h2>TOC Key statistics </h2>
+                <div>Gain insights into key statistics specific to your TOC, 
+                    visualize offer a comprehensive overview of key statistics such as 
+                    on-time performance, customer satisfaction, complaint resolution, and more.</div><br><br><br><br>
+                <button onclick="redirectTo('/cause')">View Analysis</button>
+            </div>
+            <div class="analysis-card4">
+                <h2>Recommendation System</h2>
+                <div>Receive personalized content recommendations based on 
+                    data analysis of your preferences, statistics and activities.</div><br><br><br>
+                <button onclick="redirectTo('/recommendation')">View Analysis</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+function redirectTo(url) {
+    window.location.href = url;
+}
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+  
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+</script>
+  
+</body>
+</html>
