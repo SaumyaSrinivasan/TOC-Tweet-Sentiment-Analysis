@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- external link for using icons and css purpose -->
+</head>
+
+<body>
+  <div class="container">
+    {% if login_attempts > 1 %}
+    <!-- Display an alert div when login_attempts is more than 1 -->
+    <div class="alert alert-danger">
+        {{ alert_message }}
+    </div>
+    {% endif %}
+    <form id="loginForm" action="{{ url_for('login') }}" method="post">
+      <h1>Login</h1>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      
+        <label for="toc_name">Select your TOC:</label>
+        <select id="toc_name" name="toc_name" required>
+          
+        <option value=""  disabled hidden selected>(select the TOC) <i class='bx bx-train' ></i></option>
+        <option value="Admin">Admin</option>
+        <option value="Avanti West Coast">Avanti West Coast</option>
+        <option value="Chiltern Railways">Chiltern Railways</option>
+        <option value="Grand Central ">Grand Central</option>
+        <option value="East Midlands Railway">East Midlands Railway</option>
+        <option value="West Midlands Railway">West Midlands Railway</option>
+        <!-- customise based on your requirement -->
+      </select>
+    </br>
+      <button type="submit">Login</button>
+      <div class="signup-page"><p>Don't have an account?<a href="{{ url_for('signup') }}">Signup</a></p></div>
+      <div class="backtoindex"><a href="{{ url_for('index') }}">Back</a></div>
+    </form>
+  </div>
+</body>
+
+
+<script>
+  function validateForm() {
+      // Get input values
+      var username = document.getElementById('username').value.trim();
+      var password = document.getElementById('password').value.trim();
+      var tocSelection = document.getElementById('toc_name').value;
+  
+      // Checking if any of the fields is empty
+      if (username === '' || password === '' || tocSelection === '') {
+          alert('Please fill in all fields to login.');
+          return false; // Prevent form submission
+      }
+    return true;
+  }
+
+  </script>
+
+</html>
