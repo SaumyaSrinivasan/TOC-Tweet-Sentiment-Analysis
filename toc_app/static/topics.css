@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(166, 154, 255);
+    color: black;
+}
+
+header {
+    background-color: beige;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.word-cloud {
+    max-width: 100%;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.visualization .top-10-tweets {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.visualization .tweet-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    font-family: "Garamond", serif;
+    font-size: large;
+}
+
+/* Style for tweet icon */
+.visualization .tweet-icon {
+    margin-right: 10px;
+    color: #3498db; /* Change the color as needed */
+    font-size: 20px;
+    vertical-align: middle;
+}
+
