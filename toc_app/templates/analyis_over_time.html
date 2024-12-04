@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis over time</title>
+    <link rel="stylesheet" href="/static/line-graph.css">
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h1>Number of Tweets Over Time</h1>
+    <div class="visualization">
+        <h2></h2>
+        
+        <!-- Create a form for year selection -->
+        <form method="POST" action="/line-graph">
+            <label for="year">Select a Year:</label>
+            <select name="year" id="year">
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+
+                <!-- Add more options for other years as needed -->
+            </select>
+            <button type="submit">Generate Line Graph</button>
+        </form>
+    <div>
+         <!-- Display the line graph when available -->
+         {% if line_graph_img_data %}
+         <img src="data:image/png;base64,{{ line_graph_img_data }}" alt="Number of Tweets Over Time Chart">
+         {% endif %}
+    </div>
+    <br></br><br>
+    <div class="backtoSA"><a href="/dashboard">Go Back</a></div>
+    </br>
+
+    <a href="/logout" class="logout-btn">Logout
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+    </div>
+    
+</body>
+</html>
