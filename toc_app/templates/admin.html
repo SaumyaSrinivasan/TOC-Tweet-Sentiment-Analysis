@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/adminstyle.css">
+</head>
+<body>
+    <div class="adminboard">
+        <h1>Welcome, Admin!</h1>
+
+    <h2>Alter User List</h2>
+    <table border="1">
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>TOC Name</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="card-container">
+        <h2>Add User</h2>
+    <form  method="post">
+        <label for="new_username">Username:</label><br>
+        <input type="text" id="new_username" name="new_username" required><br>
+
+        <label for="new_email">Email:</label><br>
+        <input type="email" id="new_email" name="new_email" required><br>
+
+        <label for="new_password">Password:</label><br>
+        <input type="password" id="new_password" name="new_password" required><br>
+
+        <label for="new_toc_name">TOC Name:</label><br>
+        <!-- <input type="text" id="new_toc_name" name="new_toc_name" required> -->
+        <select id="new_toc_name" required name="new_toc_name">
+            <option value="" disabled hidden selected >(select the TOC)</option>
+            <option value="Avanti West Coast">Avanti West Coast</option>
+            <option value="Chiltern Railways">Chiltern Railways</option>
+            <option value="Grand Central ">Grand Central </option>
+            <option value="East Midlands Railway">East Midlands Railway</option>
+            <option value="West Midlands Railway">West Midlands Railway</option>
+            <option value="ScotRail">ScotRail</option>
+            <option value="Southeastern">Southeastern</option>
+            <!-- add more as you want -->
+          </select>
+        <br>
+
+        <input type="hidden" id="add_user_success" name="add_user_success">
+        <br>
+        <input type="submit" value="Add User">
+    </form>
+    <br>
+    <h2>Delete User</h2>
+    <form method="post">
+        <label for="username_to_delete">Username to Delete:</label><br>
+        <input type="text" id="username_to_delete" name="username_to_delete" required><br>
+
+        <br>
+        <input type="hidden" id="delete_user_success" name="delete_user_success">
+        <input type="submit" value="Delete User">
+    </form>
+    </div>
+    <br>
+    <br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <br><br>
+    </div>
+
+    <script>
+        var add_user_success = document.getElementById('add_user_success').value;
+        if (add_user_success === 'true') {
+            alert('User added successfully!');
+        }
+
+        var delete_user_success = document.getElementById('delete_user_success').value;
+        if (delete_user_success === 'true') {
+            alert('User deleted successfully!');
+        }
+    </script>
+</body>
+</html>
