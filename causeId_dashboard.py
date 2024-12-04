@@ -6,9 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import os
-
 import argparse
-
 
 
 # Create a connection to the MySQL database
@@ -20,20 +18,9 @@ def create_db_connection():
         database='toc_db'
     )
 
-# # Get the 'toc_name' from the Flask session
-# toc_name = st.session_state.keys  # Assuming you store it in 'st.session_state'
-
-
-
+# Get the 'toc_name' from the Flask session
+toc_name = st.session_state.keys  
 toc_name = os.environ.get('TOC_NAME')
-
-# print(toc_name)
-
-
-# Now, you can use 'toc_name' in your Streamlit application as needed
-#st.write('Count = ', st.session_state.keys)
-st.write(f"YOUR TOC Name: {toc_name}")
-
 
 # Read data from the MySQL database
 def read_data(query, connection):
@@ -41,8 +28,6 @@ def read_data(query, connection):
         cursor.execute(query)
         data = cursor.fetchall()
     return data
-
-
 
 # Streamlit App
 def main():
